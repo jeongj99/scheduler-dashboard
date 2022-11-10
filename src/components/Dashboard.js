@@ -35,7 +35,9 @@ class Dashboard extends Component {
   };
 
   render() {
-    const dashboardClasses = classnames("dashboard");
+    const dashboardClasses = classnames("dashboard", {
+      "dashboard--focused": this.state.focused
+    });
 
     const panels = (this.state.focused ? data.filter(panel => this.state.focused === panel.id) : data)
       .map(panel => (
