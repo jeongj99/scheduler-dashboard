@@ -44,6 +44,19 @@ class Dashboard extends Component {
     if (focused) {
       this.setState({ focused });
     }
+
+    Promise.all([
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers")
+    ]).then(([days, appointments, interviewers]) => {
+      this.setState({
+        loading: false,
+        days: days.data,
+        appointments: appointments.data,
+        interviewers: interviewers.data
+      });
+    });
   }
 
   componentDidUpdate(previousProps, previousState) {
