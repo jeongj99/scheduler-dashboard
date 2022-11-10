@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import Panel from "./Panel";
 
 import classnames from "classnames";
+import axios from "axios";
 
 const data = [
   {
