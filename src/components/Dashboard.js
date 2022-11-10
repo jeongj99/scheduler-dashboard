@@ -34,10 +34,10 @@ class Dashboard extends Component {
     focused: null
   };
 
-  selectPanel = id => {
-    this.setState({
-      focused: id
-    });
+  selectPanel(id) {
+    this.setState(previousState => ({
+      focused: previousState.focused ? null : id
+    }));
   };
 
   render() {
